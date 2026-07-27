@@ -8,9 +8,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@capsule/domain": "workspace:*",
-    "@capsule/media": "workspace:*",
-    "@capsule/db": "workspace:*",
-    "@capsule/observability": "workspace:*"
+    "@capsule/domain": "*",
+    "@capsule/media": "*",
+    "@capsule/db": "*",
+    "@capsule/observability": "*"
   }
 }

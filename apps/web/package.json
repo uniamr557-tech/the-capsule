@@ -10,10 +10,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@capsule/ui": "workspace:*",
-    "@capsule/domain": "workspace:*",
-    "@capsule/api-contracts": "workspace:*",
-    "@capsule/auth": "workspace:*",
-    "@capsule/config": "workspace:*"
+    "@capsule/ui": "*",
+    "@capsule/domain": "*",
+    "@capsule/api-contracts": "*",
+    "@capsule/auth": "*",
+    "@capsule/config": "*"
   }
 }
