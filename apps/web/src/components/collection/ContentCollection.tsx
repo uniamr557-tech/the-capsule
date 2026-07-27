@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useContentCollection } from '../../hooks/useContentCollection';
+import { useContentCollection } from '@/hooks/useContentCollection';
 import { ContentItemDto } from '@capsule/api-contracts';
 import { MediaCard } from './MediaCard';
 import { MemoryCard } from './MemoryCard';

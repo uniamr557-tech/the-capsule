@@ -1,51 +1,43 @@
-'use client';
-
 import { useState, useEffect, useCallback } from 'react';
-import { ContentItemDto, ContentListQueryDto } from '@capsule/api-contracts';
-import { ContentCollectionService } from '../lib/content-service';
+import { ContentItemDto } from '@capsule/api-contracts';
+import { ContentCollectionService } from '@/lib/content-service';
 
-interface UseContentCollectionOptions {
-  type?: ContentListQueryDto['type'];
+export interface ContentCollectionOptions {
+  type?: 'photo' | 'video' | 'memory' | 'message';
   tagId?: string;
   searchPhrase?: string;
-  sort?: ContentListQueryDto['sort'];
+  sort?: 'newest' | 'oldest' | 'moment_date';
 }
 
-export function useContentCollection(options: UseContentCollectionOptions = {}) {
+export function useContentCollection(options: ContentCollectionOptions = {}) {
   const [items, setItems] = useState<ContentItemDto[]>([]);
+  const [nextCursor, setNextCursor] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchCollection = useCallback(async () => {
+  const fetchItems = useCallback(async () => {
     setIsLoading(true);
     setError(null);
     try {
-      if (options.searchPhrase && options.searchPhrase.trim().length > 0) {
-        const searchResults = await ContentCollectionService.searchContent(options.searchPhrase);
-        setItems(searchResults);
-      } else {
-        const response = await ContentCollectionService.getVisibleContent({
-          type: options.type,
-          tagId: options.tagId,
-          sort: options.sort || 'newest',
-        });
-        setItems(response.items);
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load content collection.');
+      const data = await ContentCollectionService.getVisibleContent(options);
+      setItems(data.items);
+      setNextCursor(data.nextCursor);
+    } catch (err: any) {
+      setError(err?.message || 'Failed to load capsule content.');
     } finally {
       setIsLoading(false);
     }
   }, [options.type, options.tagId, options.searchPhrase, options.sort]);
 
   useEffect(() => {
-    fetchCollection();
-  }, [fetchCollection]);
+    fetchItems();
+  }, [fetchItems]);
 
   return {
     items,
+    nextCursor,
     isLoading,
     error,
-    refresh: fetchCollection,
+    refresh: fetchItems,
   };
 }

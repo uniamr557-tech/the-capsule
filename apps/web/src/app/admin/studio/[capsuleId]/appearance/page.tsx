@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { themeAccents, ThemeAccentKey } from '@capsule/ui';
-import { DEMO_CAPSULE } from '../../../../lib/session';
+import { DEMO_CAPSULE } from '@/lib/session';
 
 export default function AppearanceStudioPage() {
   const [welcomeText, setWelcomeText] = useState(DEMO_CAPSULE.welcomeText);

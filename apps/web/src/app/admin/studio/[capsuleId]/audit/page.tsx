@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { AuditTimeline } from '../../../../components/admin/AuditTimeline';
-import { AdminStudioService } from '../../../../lib/admin-service';
+import { AuditTimeline } from '@/components/admin/AuditTimeline';
+import { AdminStudioService } from '@/lib/admin-service';
 import { AuditEventDto } from '@capsule/api-contracts';
 
 export default function AuditLogPage() {

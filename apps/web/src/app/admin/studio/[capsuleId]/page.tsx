@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { MetricCard } from '../../../../components/admin/MetricCard';
-import { AdminStudioService, AdminDashboardMetrics } from '../../../../lib/admin-service';
+import { MetricCard } from '@/components/admin/MetricCard';
+import { AdminStudioService, AdminDashboardMetrics } from '@/lib/admin-service';
 import Link from 'next/link';
 
 export default function AdminDashboardPage({ params }: { params: { capsuleId: string } }) {

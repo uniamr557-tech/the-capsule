@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { SessionGuardService, DEMO_CAPSULE } from '../../../../../../lib/session';
+import { SessionGuardService, DEMO_CAPSULE } from '@/lib/session';
 
 export async function POST(
   request: Request,
@@ -19,7 +19,6 @@ export async function POST(
     const result = SessionGuardService.validateCodeAndCreateSession(code);
 
     if (!result.success || !result.session) {
-      // Generic neutral security response
       return NextResponse.json(
         { code: 'UNAUTHORIZED', message: result.error || "That code isn't active.", requestId: `req_${Date.now()}` },
         { status: 401 },
@@ -33,12 +32,11 @@ export async function POST(
       expiresAt: result.session.expiresAt.toISOString(),
     });
 
-    // Set secure HTTP-only cookie
     response.cookies.set('capsule_senior_session', result.session.id, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
-      maxAge: 24 * 60 * 60, // 24 Hours
+      maxAge: 24 * 60 * 60,
       path: '/',
     });
 

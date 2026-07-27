@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { AdminStudioService, AdminDashboardMetrics } from '../../../../lib/admin-service';
-import { ConfirmationDialog } from '../../../../components/admin/ConfirmationDialog';
+import { AdminStudioService, AdminDashboardMetrics } from '@/lib/admin-service';
+import { ConfirmationDialog } from '@/components/admin/ConfirmationDialog';
 
 export default function AccessCodeManagerPage() {
   const [metrics, setMetrics] = useState<AdminDashboardMetrics | null>(null);

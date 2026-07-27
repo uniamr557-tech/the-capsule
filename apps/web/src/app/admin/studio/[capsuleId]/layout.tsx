@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { AdminSidebar } from '../../../../components/admin/AdminSidebar';
-import { DEMO_CAPSULE } from '../../../../lib/session';
+import { AdminSidebar } from '@/components/admin/AdminSidebar';
+import { DEMO_CAPSULE } from '@/lib/session';
 
 export default function AdminStudioLayout({
   children,

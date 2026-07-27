@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ContentCollection } from '../../../../components/collection/ContentCollection';
+import { ContentCollection } from '@/components/collection/ContentCollection';
 
 export default function SearchPage() {
   return (

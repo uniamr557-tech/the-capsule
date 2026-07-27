@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { ContentCollectionService } from '../../../../../../lib/content-service';
+import { ContentCollectionService } from '@/lib/content-service';
 import { CreateContentItemRequest } from '@capsule/api-contracts';
 
 export async function GET(request: Request) {

@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { DataTable } from '../../../../components/admin/DataTable';
-import { ConfirmationDialog } from '../../../../components/admin/ConfirmationDialog';
-import { ContentCollectionService } from '../../../../lib/content-service';
-import { AdminStudioService } from '../../../../lib/admin-service';
+import { DataTable } from '@/components/admin/DataTable';
+import { ConfirmationDialog } from '@/components/admin/ConfirmationDialog';
+import { ContentCollectionService } from '@/lib/content-service';
+import { AdminStudioService } from '@/lib/admin-service';
 import { ContentItemDto } from '@capsule/api-contracts';
 
 export default function ContentManagerPage() {
