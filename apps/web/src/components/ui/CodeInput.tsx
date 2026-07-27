@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { NON_AMBIGUOUS_CHARSET } from '@capsule/domain';
 
 interface CodeInputProps {
   onSuccess: (code: string) => void;
@@ -15,10 +14,10 @@ export const CodeInput: React.FC<CodeInputProps> = ({ onSuccess, errorMessage, i
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const raw = e.target.value.toUpperCase();
-    // Filter characters to non-ambiguous set
+    // Allow all letters A-Z and digits 0-9
     const filtered = raw
       .split('')
-      .filter((char) => NON_AMBIGUOUS_CHARSET.includes(char))
+      .filter((char) => /[A-Z0-9]/.test(char))
       .slice(0, 8)
       .join('');
 
