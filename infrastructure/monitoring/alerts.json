@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json.schemastore.org/monitoring-alerts",
+  "name": "the-capsule-alerts-v1",
+  "rules": [
+    {
+      "alert": "HighAccessCodeRateLimitViolations",
+      "expr": "rate(access_code_attempts_failed_total[5m]) > 100",
+      "for": "2m",
+      "severity": "critical",
+      "annotations": {
+        "summary": "Potential access code brute-force attack detected"
+      }
+    },
+    {
+      "alert": "MediaUploadFailureRateHigh",
+      "expr": "rate(media_upload_failed_total[5m]) / rate(media_upload_total[5m]) > 0.01",
+      "for": "5m",
+      "severity": "warning",
+      "annotations": {
+        "summary": "Media upload failure rate exceeds 1% SLA threshold"
+      }
+    }
+  ]
+}

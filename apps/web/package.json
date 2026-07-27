@@ -1,0 +1,19 @@
+{
+  "name": "@capsule/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@capsule/ui": "workspace:*",
+    "@capsule/domain": "workspace:*",
+    "@capsule/api-contracts": "workspace:*",
+    "@capsule/auth": "workspace:*",
+    "@capsule/config": "workspace:*"
+  }
+}
