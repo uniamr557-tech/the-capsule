@@ -4,7 +4,7 @@
  */
 
 import { ContentStatus } from './lifecycle';
-export { ContentStatus };
+export type { ContentStatus };
 
 export type ContentType = 'photo' | 'video' | 'memory' | 'message';
 
