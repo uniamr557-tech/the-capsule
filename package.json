@@ -8,8 +8,8 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "cd apps/web && next build && cp -r .next ../../.next",
-    "dev": "npm run dev --prefix apps/web",
+    "build": "next build apps/web",
+    "dev": "next dev apps/web",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
