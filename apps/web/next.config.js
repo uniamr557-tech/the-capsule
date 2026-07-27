@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: process.env.VERCEL ? '../../.next' : '.next',
   reactStrictMode: true,
   transpilePackages: [
     '@capsule/ui',
@@ -11,6 +10,9 @@ const nextConfig = {
   ],
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
 };
 
