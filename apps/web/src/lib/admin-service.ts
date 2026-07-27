@@ -3,7 +3,7 @@
  * Source of Truth: Product Specification Section 4.6 & ADR-0001/0002/0003/0004
  */
 
-import { ContentItemDto, AuditEventDto } from '@capsule/api-contracts';
+import { AuditEventDto } from '@capsule/api-contracts';
 import { AccessCodeManager } from '@capsule/domain';
 
 export interface AdminDashboardMetrics {
@@ -20,8 +20,8 @@ export interface AdminDashboardMetrics {
 }
 
 let mockMetrics: AdminDashboardMetrics = {
-  storageBytesUsed: 1.2 * 1024 * 1024 * 1024, // 1.2 GB
-  maxStorageBytes: 10 * 1024 * 1024 * 1024,   // 10 GB Allowance
+  storageBytesUsed: 1.2 * 1024 * 1024 * 1024,
+  maxStorageBytes: 10 * 1024 * 1024 * 1024,
   totalContributions: 5,
   visibleCount: 5,
   hiddenCount: 0,
