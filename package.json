@@ -8,7 +8,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build --prefix apps/web",
+    "build": "cd apps/web && next build && cp -r .next ../../.next",
     "dev": "npm run dev --prefix apps/web",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

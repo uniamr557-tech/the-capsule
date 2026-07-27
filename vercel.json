@@ -1,4 +1,3 @@
 {
-  "framework": "nextjs",
-  "buildCommand": "npm run build --prefix apps/web"
+  "buildCommand": "cd apps/web && next build && cp -r .next ../../.next"
 }
